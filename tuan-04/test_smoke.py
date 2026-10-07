@@ -1,24 +1,34 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 
 
-def test_smoke_the_internet():
-    # Khởi tạo trình duyệt Chrome
-    driver = webdriver.Chrome()
+# Fixture pytest: tự động mở Chrome trước khi test và tắt Chrome sau khi test xong
+@pytest.fixture
+def driver():
+    # 1. Khởi chạy trình duyệt Chrome
+    browser = webdriver.Chrome()
+    browser.implicitly_wait(10)  # Chờ ngầm định tối đa 10s cho các phần tử tải xong
 
-    # Tự động chờ tối đa 10 giây nếu phần tử chưa xuất hiện
-    driver.implicitly_wait(10)
+    # Trả đối tượng browser về cho hàm kiểm thử sử dụng
+    yield browser
 
-    try:
-        # Mở trang web cần kiểm thử
-        driver.get("https://the-internet.herokuapp.com/")
+    # Đóng trình duyệt để dọn dẹp tài nguyên
+    browser.quit()
 
-        # Lấy tiêu đề thực tế của trang
-        actual_title = driver.title
 
-        # Kiểm tra (assert) tiêu đề có đúng là "The Internet" hay không
-        assert actual_title == "The Internet"
-    finally:
-        # Đóng trình duyệt sau khi kiểm thử xong
-        driver.quit()
+def test_smoke_homepage(driver):
+    # 2. Truy cập vào trang web thực hành the-internet
+    url = "https://the-internet.herokuapp.com/"
+    driver.get(url)
+
+    # 3. Kiểm tra tiêu đề hiển thị trên thanh tab trình duyệt
+    expected_title = "The Internet"
+    assert (
+            driver.title == expected_title
+    ), f"Tiêu đề không đúng! Kỳ vọng: '{expected_title}', Thực tế: '{driver.title}'"
+
+    # 4. Kiểm tra thêm dòng chữ tiêu đề lớn (h1) xuất hiện trên màn hình
+    heading_element = driver.find_element(By.TAG_NAME, "h1")
+    assert heading_element.is_displayed(), "Tiêu đề h1 không hiển thị trên trang"
+    assert "Welcome to the-internet" in heading_element.text
