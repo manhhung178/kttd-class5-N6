@@ -1,0 +1,14 @@
+Ghi chú tuần 05 - Kiểm thử tự động
+1. Điều đã học được
+Kiểm thử: Viết và chạy thành công test case cho luồng đăng nhập sai mật khẩu trên "The Internet Herokuapp".
+Công cụ: Dùng Python + Selenium để tự động thao tác trên web và Pytest để assert kết quả.
+Sửa lỗi: Biết cách cài package và chỉnh lại Python Interpreter trong PyCharm khi .venv bị thiếu thư viện.
+
+2. Trả lời câu hỏi phần đọc
+Câu hỏi: Nếu kết quả thực tế khác mong đợi thì pytest báo gì?
+Trả lời: Pytest báo FAILED kèm lỗi AssertionError và chỉ rõ sự khác biệt giữa kết quả thực tế (actual) và mong đợi (expected).
+
+3. Nhật ký sử dụng AI
+Đã hỏi AI: Cách viết script test đăng nhập sai mật khẩu và cách sửa lỗi ModuleNotFoundError: No module named 'pytest' trong PyCharm.
+Đánh giá câu trả lời: AI hướng dẫn đúng câu lệnh Terminal và các bước cấu hình Interpreter nên fix lỗi nhanh.
+Bài học rút ra: Nắm rõ cách quản lý môi trường ảo (.venv) và cách bắt chuỗi thông báo lỗi (flash message) trên UI.
