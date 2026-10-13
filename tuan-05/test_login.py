@@ -13,21 +13,26 @@ LOGIN_URL = "https://the-internet.herokuapp.com/login"
 
 
 def dang_nhap(driver, username, password):
-    """Hàm phụ trợ: Mở trang, điền form, click đăng nhập và lấy thông báo."""
-    wait = WebDriverWait(driver, 10)
+    """Hàm phụ trợ: Đợi trang tải xong, điền form, click đăng nhập và lấy thông báo."""
+    wait = WebDriverWait(driver, 15)
     driver.get(LOGIN_URL)
 
-    # Điền username và password
-    driver.find_element(By.ID, "username").send_keys(username)
-    driver.find_element(By.ID, "password").send_keys(password)
+    # Đợi ô username xuất hiện đầy đủ rồi mới điền
+    user_box = wait.until(EC.visibility_of_element_located((By.ID, "username")))
+    user_box.clear()
+    user_box.send_keys(username)
+
+    # Đợi ô password xuất hiện rồi mới điền
+    pass_box = wait.until(EC.visibility_of_element_located((By.ID, "password")))
+    pass_box.clear()
+    pass_box.send_keys(password)
 
     # Bấm nút Login
-    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    submit_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
+    submit_btn.click()
 
-    # Chờ thông báo phản hồi (flash message) xuất hiện trên giao diện
-    thong_bao = wait.until(
-        EC.visibility_of_element_located((By.ID, "flash"))
-    )
+    # Chờ thông báo phản hồi (flash message) xuất hiện
+    thong_bao = wait.until(EC.visibility_of_element_located((By.ID, "flash")))
     return thong_bao.text
 
 
