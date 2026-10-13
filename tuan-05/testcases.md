@@ -35,12 +35,12 @@ Kiểm tra hệ thống có từ chối đăng nhập khi người dùng nhập 
 ## TC03 - Đăng nhập thất bại do sai tên đăng nhập
 - Mục tiêu: Kiểm tra hệ thống chặn đăng nhập và báo lỗi khi nhập username không tồn tại.
 - Các bước thực hiện:
-  1. Mở trình duyệt Chrome và truy cập vào trang `https://the-internet.herokuapp.com/login`.
-  2. Nhập ô Username không tồn tại: `invalid_user_n6`.
-  3. Nhập ô Password: `SuperSecretPassword!`.
-  4. Nhấn nút Login.
-  5. Lấy nội dung thông báo flash thông báo lỗi (id: `flash`).
-  6. Đóng trình duyệt.
+1. Mở trình duyệt Chrome và truy cập vào trang `https://the-internet.herokuapp.com/login`.
+2. Nhập ô Username không tồn tại: `invalid_user_n6`.
+3. Nhập ô Password: `SuperSecretPassword!`.
+4. Nhấn nút Login.
+5. Lấy nội dung thông báo flash thông báo lỗi (id: `flash`).
+6. Đóng trình duyệt.
 - Kết quả mong đợi:
-  * Không thể đăng nhập vào hệ thống.
-  * Thông báo hiển thị chứa nội dung: `"Your username is invalid!"`.
+* Không thể đăng nhập vào hệ thống.
+* Thông báo hiển thị chứa nội dung: `"Your username is invalid!"`.
