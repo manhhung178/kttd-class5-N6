@@ -28,3 +28,9 @@ Bài test_smoke.py tự động mở trình duyệt Chrome, truy cập trang htt
 ### 4. Minh chứng thực hành
 Ảnh chụp màn hình kết quả chạy thành công trên máy của từng thành viên được lưu tại:
 📁 tuan-04/anh/
+
+## Chạy kiểm thử Tuần 5 (Login Functional Test)
+Đứng tại thư mục gốc và chạy:
+```bash
+python -m pytest tuan-05/test_login.py -v
+```
