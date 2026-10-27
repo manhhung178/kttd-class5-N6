@@ -2,11 +2,12 @@
 
 ## 1. Thông tin nhóm thực hiện
 * **Nhóm:** W3 (Team N6)
-* **Thành viên thực hiện:** Nguyễn Mạnh Hùng - MSV: A51029
-** Nguyễn Thị Khánh Linh - MSV: A51852
-** Nguyễn Thị Hiền Nương - MSV: A51807
-** Triệu Ngọc Diệp - MSV: A51933
-** Đặng Hải Chi - MSV: A52142
+* **Thành viên thực hiện:**
+  * Nguyễn Mạnh Hùng - MSV: A51029
+  * Nguyễn Thị Khánh Linh - MSV: A51852
+  * Nguyễn Thị Hiền Nương - MSV: A51807
+  * Triệu Ngọc Diệp - MSV: A51933
+  * Đặng Hải Chi - MSV: A52142
 * **Nhánh nộp bài:** `week-07`
 
 ---
